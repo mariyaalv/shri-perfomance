@@ -1,8 +1,7 @@
 const path = require("path");
 const HtmlWebpackPlugin = require("html-webpack-plugin");
+const HtmlInlineScriptPlugin = require("html-inline-script-webpack-plugin");
 const { CleanWebpackPlugin } = require("clean-webpack-plugin");
-const MiniCssExtractPlugin = require("mini-css-extract-plugin");
-const CssMinimizerPlugin = require("css-minimizer-webpack-plugin"); // <- импорт забыт
 
 module.exports = {
   entry: "./src/index.jsx",
@@ -27,7 +26,7 @@ module.exports = {
       },
       {
         test: /\.css$/i,
-        use: [MiniCssExtractPlugin.loader, "css-loader"],
+        use: ["style-loader", "css-loader"],
       },
       {
         test: /\.(png|jpe?g|gif|svg|webp)$/i,
@@ -44,13 +43,10 @@ module.exports = {
       filename: "index.html",
     }),
     new CleanWebpackPlugin(),
-    new MiniCssExtractPlugin({
-      filename: "[name].[contenthash].css",
-    }),
+    new HtmlInlineScriptPlugin(),
   ],
   optimization: {
     minimize: true,
-    minimizer: [`...`, new CssMinimizerPlugin()],
   },
   mode: "production",
 };

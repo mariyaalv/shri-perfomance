@@ -489,7 +489,7 @@ html {
     gap: 1.25rem;
     height: auto;
     margin-bottom: .3125rem;
-    background-image: url(assets/base64.png)
+    background-image: none
   }
 
   .hero-dashboard__primary {
