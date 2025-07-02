@@ -3,7 +3,6 @@ const HtmlWebpackPlugin = require("html-webpack-plugin");
 const HtmlInlineCssWebpackPlugin =
   require("html-inline-css-webpack-plugin").default;
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
-const { CleanWebpackPlugin } = require("clean-webpack-plugin");
 
 module.exports = {
   entry: "./src/index.jsx",
@@ -49,7 +48,6 @@ module.exports = {
       filename: "styles.css", // промежуточный
     }),
     new HtmlInlineCssWebpackPlugin(),
-    new CleanWebpackPlugin(),
   ],
   optimization: {
     minimize: true,
