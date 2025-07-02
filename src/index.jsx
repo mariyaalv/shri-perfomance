@@ -462,9 +462,9 @@ function Footer() {
 
 const root = ReactDOM.createRoot(document.getElementById("app"));
 root.render(
-  <>
+  <div className="page">
     <Header />
     <Main />
     <Footer />
-  </>
+  </div>
 );
