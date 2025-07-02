@@ -43,6 +43,7 @@ module.exports = {
     new HtmlWebpackPlugin({
       template: "./src/index.html",
       filename: "index.html",
+      minify: false,
     }),
     new MiniCssExtractPlugin({
       filename: "styles.css", // промежуточный

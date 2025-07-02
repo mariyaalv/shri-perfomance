@@ -27,14 +27,8 @@ body {
 }
 
 body,
-html,
-.page {
+html {
   height: 100%
-}
-
-.page {
-  display: flex;
-  flex-direction: column;
 }
 
 .a11y-hidden {
