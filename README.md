@@ -18,4 +18,4 @@
 4) Готово! Репозиторий выложится через минуту, и в том же разделе "Pages" будет ссылка
 
 ## Ссылка на страницу
-https://mariyaalv.github.io/shri-perfomance/
+https://mariyaalv.github.io/shri-perfomance/dist/
