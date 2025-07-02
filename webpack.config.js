@@ -1,6 +1,8 @@
 const path = require("path");
 const HtmlWebpackPlugin = require("html-webpack-plugin");
-const CopyWebpackPlugin = require("copy-webpack-plugin");
+const { CleanWebpackPlugin } = require("clean-webpack-plugin");
+const MiniCssExtractPlugin = require("mini-css-extract-plugin");
+const CssMinimizerPlugin = require("css-minimizer-webpack-plugin"); // <- импорт забыт
 
 module.exports = {
   entry: "./src/index.jsx",
@@ -25,7 +27,14 @@ module.exports = {
       },
       {
         test: /\.css$/i,
-        use: ["style-loader", "css-loader"],
+        use: [MiniCssExtractPlugin.loader, "css-loader"],
+      },
+      {
+        test: /\.(png|jpe?g|gif|svg|webp)$/i,
+        type: "asset/resource",
+        generator: {
+          filename: "assets/[name][hash][ext][query]",
+        },
       },
     ],
   },
@@ -34,22 +43,14 @@ module.exports = {
       template: "./src/index.html",
       filename: "index.html",
     }),
-    new CopyWebpackPlugin({
-      patterns: [
-        {
-          from: "src/assets",
-          to: "assets",
-        },
-        {
-          from: "src/styles.css",
-          to: "styles.css",
-        },
-        {
-          from: "src/reset.css",
-          to: "reset.css",
-        },
-      ],
+    new CleanWebpackPlugin(),
+    new MiniCssExtractPlugin({
+      filename: "[name].[contenthash].css",
     }),
   ],
-  mode: "development",
+  optimization: {
+    minimize: true,
+    minimizer: [`...`, new CssMinimizerPlugin()],
+  },
+  mode: "production",
 };

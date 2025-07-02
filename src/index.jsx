@@ -1,5 +1,8 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
+import "./reset.css";
+import "./styles.css";
+
 function Header() {
   let [expanded, setExpanded] = React.useState(false);
   let [toggled, setToggled] = React.useState(false);
