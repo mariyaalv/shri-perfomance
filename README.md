@@ -1,7 +1,6 @@
 # ШРИ 2025: Performance
 
-# Ссылка на страницу
-https://mariyaalv.github.io/shri-perfomance/dist/
+# [Ссылка на страницу](https://mariyaalv.github.io/shri-perfomance/dist/)
 
 ## Задание
 Оптимизировать страницу, выложить результат на Github-Pages и отправить его на проверку на [https://shri-performance.ru/](https://shri-performance.ru/), отправив адрес вашей страницы. Нужно набрать минимум **80 баллов**. Набрать больше баллов возможно, но больше 120 в зачёт не пойдёт.
