@@ -5,25 +5,22 @@ const HtmlInlineCssWebpackPlugin =
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 
 module.exports = {
-  entry: "./src/index.jsx",
+  entry: "./src/index.js",
   output: {
     filename: "index.js",
     path: path.resolve(__dirname, "dist"),
     clean: true,
   },
   resolve: {
-    extensions: [".js", ".jsx"],
-    alias: {
-      react: "react",
-      "react-dom": "react-dom",
-    },
+    extensions: [".js"],
   },
   module: {
     rules: [
       {
-        test: /\.jsx?$/,
+        test: /\.js$/,
         loader: "babel-loader",
         exclude: /node_modules/,
+        type: "javascript/auto",
       },
       {
         test: /\.css$/i,
@@ -45,7 +42,7 @@ module.exports = {
       minify: false,
     }),
     new MiniCssExtractPlugin({
-      filename: "styles.css", // промежуточный
+      filename: "styles.css",
     }),
     new HtmlInlineCssWebpackPlugin(),
   ],
